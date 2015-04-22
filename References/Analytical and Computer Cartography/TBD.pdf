@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+
+<head>
+  <title>UC Santa Barbara Geography / Site Map</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="/css/geog.css" rel="stylesheet" type="text/css" /> 
+  <!--[if IE]><link rel="stylesheet" href="/css/geog_ie.css" type="text/css" /><![endif]-->
+  <!--[if lte IE 7]><link rel="stylesheet" href="/css/geog_ie6-7.css" type="text/css" /><![endif]-->
+  <script type="text/javascript" src="/js/coolmenus4.js"></script>
+  <script type="text/javascript" src="/js/browser_select.js"></script>
+  <script type="text/javascript" src="/js/default.js"></script>
+<script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/js/side_menu_float.js"></script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+<div id="top_bar">
+<div></div>
+<div id="social">
+<!-- 20140207 - Added following code for Social Media availability -->
+<p align="right"><!-- 20140207 - Added following code for Social Media availability --><a href="https://plus.google.com/105408304019154712635" target="_blank" rel="publisher"><img src="/img/social-media-icons-gray/32x32/googleplus-32.png" width="20px" height="20px" alt="Google+"/></a>&nbsp;&nbsp;<a href="https://www.facebook.com/ucsbgeog" target="_blank"><img src="/img/social-media-icons-gray/32x32/facebook-32.png" width="20px" height="20px" alt="Facebook" /></a>&nbsp;&nbsp;<a href="https://www.twitter.com/ucsbgeog" target="_blank"><img src="/img/social-media-icons-gray/32x32/twitter-32.png" width="20px" height="20px" alt="Twitter"/></a>&nbsp;&nbsp;<a href="http://instagram.com/ucsbgeog" target="_blank"><img src="/img/social-media-icons-gray/32x32/instagram-32.png" width="20px" height="20px" alt="Instagram"/></a>&nbsp;&nbsp;<a href="http://www.linkedin.com/groups?gid=6637014" target="_blank"><img src="/img/social-media-icons-gray/32x32/linkedin-32.png" width="20px" height="20px" alt="LinkedIn"/></a>
+ </p>
+</div>
+
+<!-- need table here so boxes can resize together (without javascript) when text changes size -->
+<table cellpadding="0" cellspacing="0" border="0">
+<tr><td class="top"></td></tr>
+<tr><td class="title" valign="bottom"><span>UC Santa Barbara<br/>Department of Geography</span></td></tr>
+</table>
+<span class="real_title"><a href="/">UC Santa Barbara<br/>Department of Geography</a></span>
+</div>
+
+<div id="nav_bar">
+<div id="noscript"><a href="/about/">about</a><a href="/academics/">academics</a><a href="/people/">people</a><a href="/computing/">computing</a><a href="/services/">services</a><a href="/events/">news &amp; events</a><a href="/giving/">giving to geog</a></div>
+
+<script type="text/javascript" src="/js/main_menu.js"></script>
+<div style="padding:0px 40px 0px 0px" align="right"> 
+<div id='cse-search-form' style='width: 27%; height: 15px;'>Loading</div>
+<script src='//www.google.com/jsapi' type='text/javascript'></script>
+<script type='text/javascript'>
+google.load('search', '1', {language: 'en', style: google.loader.themes.ESPRESSO});
+google.setOnLoadCallback(function() {
+  var customSearchOptions = {};
+  var orderByOptions = {};
+  orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+  customSearchOptions['enableOrderBy'] = true;
+  customSearchOptions['orderByOptions'] = orderByOptions;
+  var customSearchControl =   new google.search.CustomSearchControl('016985915067762335993:x069koilrze', customSearchOptions);
+  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+  var options = new google.search.DrawOptions();
+  options.enableSearchboxOnly('http://geog.ucsb.edu/search.php', 'q');
+  options.setAutoComplete(true);
+  customSearchControl.draw('cse-search-form', options);
+}, true);
+</script>
+<style type='text/css'>
+	width: 25px;
+	height:15px;
+  input.gsc-input {
+    border-color: #D3BCA1;
+  }
+  input.gsc-search-button {
+	width: 45px;
+	height:14px;
+font-family: arial;
+font-size; 1%;
+    border-color: #7F6000;
+    background-color: #7F6000;
+  }
+</style></div>
+
+<div class="text_size"><a href="/common/text.php" onclick="return text_size('')"><img src="/img/font-small.png" alt="Small font size (default)"/></a><a href="/common/text.php?size=medium" onclick="return text_size('medium')"><img src="/img/font-medium.png" alt="Medium font size"/></a><a href="/common/text.php?size=large" onclick="return text_size('large')"><img src="/img/font-large.png" alt="Large font size"/></a></div>
+</div>
+
+<div id="site-map.html" class="content">
+<h2>UC Santa Barbara Geography / Site Map</h2>
+<div id="uri_error">
+  <h3>404 Error</h3>
+  The page you requested,
+  <div>/~kclarke/Geography128/TBD.pdf</div>
+  was not found on the Geography web server.
+  <ul>
+    <li>If you typed the address in manually, make sure it is spelled correctly.</li>
+    <li>Since this is a geography user directory (ie. it begins with /~ or /%7E), it is very likely that this user's files are no longer publicly available. You may complain about this to <a href="mailto:jon.hall@geog.ucsb.edu">the webmaster</a>.</li>
+  </ul>
+</div>
+<p>Alphabetical listing of all sections of the Department of Geography website and their contents.</p>
+
+<ul class="p">
+<li><a href="/about/">About</a>
+<ul class="null">  <li><a href="/about/geography-majors/">Majoring in Geography</a></li>
+  <li><a href="/about/awards-and-rankings/">Awards and Rankings</a></li>
+  <li><a href="/about/contact-information/">Contact Information</a></li>
+  <li><a href="/history/">Department History</a></li>
+  <li><a href="/about/diversity/">Diversity</a></li>
+  <li><a href="/about/geography-visitors/">Geography Visitors</a></li>
+  <li><a href="/about/logos/">Logos</a></li>
+  <li><a href="/about/open-positions/">Open Positions</a></li>
+  <li><a href="/about/related-links/">Related Links</a></li>
+  <li><a href="/about/vision-statement/">Vision Statement</a></li>
+  <li><a href="/alumni/">Alumni</a></li>
+</ul></li>
+
+<li><a href="/academics/">Academics</a>
+<ul class="null">  <li><a href="/academics/admissions/">Admissions</a></li>
+  <li><a href="/academics/advising/">Advising</a></li>
+  <li><a href="/courses/">Courses</a></li>
+  <li><a href="/academics/forms/">Forms and Petitions</a></li>
+  <li><a href="/graduates/">Graduates</a></li>
+  <li><a href="/academics/housing/">Housing</a></li>
+  <li><a href="/research/">Research</a></li>
+  <li><a href="/undergraduates/">Undergraduates</a></li>
+  <li><a href="/undergraduates/projects/">Student Projects</a></li>
+</ul></li>
+
+<li><a href="/computing/">Computing</a>
+<ul class="null">  <li><a href="http://it.geog.ucsb.edu//">Geography IT Support</a></li>
+  <li><a href="http://it.geog.ucsb.edu/kb/faq.php?cid=1/">Connect Migration</a></li>
+  <li><a href="/computing/printing/">Printing</a></li>
+  <li><a href="/computing/labs/">Labs</a></li>
+</ul></li>
+
+<li><a href="/courses/">Courses</a>
+<ul class="null">  <li><a href="http://my.sa.ucsb.edu/catalog/Current/CollegesDepartments/ls-intro/geog.aspx?DeptTab=Courses/">Undergraduate Courses</a></li>
+  <li><a href="/courses/graduate-courses//">Graduate Courses</a></li>
+  <li><a href="/courses/class-schedule/schedule.php/">Class Schedule</a></li>
+  <li><a href="/courses/course-assistance/">Course Assistance</a></li>
+  <li><a href="/courses/instructor-codes/">Instructor Codes</a></li>
+  <li><a href="/courses/related-courses/">Related Courses</a></li>
+</ul></li>
+
+<li><a href="/history/">Department History</a>
+<ul class="null">  <li><a href="http://geog.ucsb.edu/history/pdf/department-history-baumgart-and-clarke.pdf/">History, Curriculum, and Pedagogy</a></li>
+  <li><a href="/history/a-lively-chronicle/">A Lively Chronicle: 1963-2000</a></li>
+  <li><a href="/history/geography-21st-century/">UCSB Geography in the 21st Century</a></li>
+  <li><a href="/history/computers-in-research/">Computers in Research</a></li>
+  <li><a href="/history/sdsu-joint-phd-program/">SDSU Joint PhD Program</a></li>
+  <li><a href="http://archive.geog.ucsb.edu/photos/photo_pages/historic.htm/">Historic Photos</a></li>
+  <li><a href="/history/timeline/">Timeline</a></li>
+</ul></li>
+
+<li><a href="/giving/">Giving to Geog</a>
+<ul class="null">  <li><a href="/giving/make-a-gift/">Make a Gift Now</a></li>
+  <li><a href="/giving/opportunities/">Giving Opportunities</a></li>
+  <li><a href="/giving/donors/">Our Donors</a></li>
+</ul></li>
+
+<li><a href="/graduates/">Graduates</a>
+<ul class="null">  <li><a href="/graduates/program-description/">Program Description</a></li>
+  <li><a href="/graduates/affiliated-programs/">Affiliated PhD Programs</a></li>
+  <li><a href="/graduates/student-handbook/">Student Handbook</a></li>
+  <li><a href="/graduates/masters-theses/">Master's Theses</a></li>
+  <li><a href="/graduates/phd-dissertations/">Ph.D. Dissertations</a></li>
+  <li><a href="/graduates/faq/">FAQs</a></li>
+  <li><a href="http://www.geog.ucsb.edu/academics/advising/graduates.html/">Advising</a></li>
+  <li><a href="/graduates/awards-financial-aid/">Awards &amp; Financial Aid</a></li>
+  <li><a href="http://emergencyresources.sa.ucsb.edu//">UCSB Student Resources</a></li>
+</ul></li>
+
+<li><a href="/events/">News &amp; Events</a>
+<ul class="null">  <li><a href="/events/department-news/">Department News</a></li>
+  <li><a href="/events/events-calendar/">Events Calendar</a></li>
+  <li><a href="/events/event-photos/">Event Photos</a></li>
+  <li><a href="/events/news-favorites/">News Favorites</a></li>
+  <li><a href="/events/news-archive/">News Archive</a></li>
+  <li><a href="/events/colloquia-archive/">Colloquia Archive</a></li>
+</ul></li>
+
+<li><a href="/people/">People</a>
+<ul class="null">  <li><a href="/people/faculty/">Faculty</a></li>
+  <li><a href="/people/lecturer/">Lecturer</a></li>
+  <li><a href="/people/staff/">Staff</a></li>
+  <li><a href="/people/researchers/">Researchers</a></li>
+  <li><a href="/people/grad-students/">Grad Students</a></li>
+  <li><a href="/people/alumni/">Alumni</a></li>
+  <li><a href="/people/visiting-scholars/">Visiting Scholars</a></li>
+  <li><a href="/people/locations/">Locations</a></li>
+  <li><a href="/people/alphabetical-index/">Alphabetical Index</a></li>
+  <li><a href="/people/phone-status/">Phone Status</a></li>
+</ul></li>
+
+<li><a href="/research/">Research</a>
+<ul class="null">  <li><a href="/research/research-units/">Research Units</a></li>
+  <li><a href="/research/publications/">Publications</a></li>
+  <li><a href="/research/grants-awarded/">Grants Awarded</a></li>
+</ul></li>
+
+<li><a href="/services/">Services</a>
+<ul class="null">  <li><a href="http://it.geog.ucsb.edu/kb/faq.php?cid=1/">Connect Migration</a></li>
+  <li><a href="http://map.geog.ucsb.edu//">Interactive Campus Map</a></li>
+  <li><a href="http://sustainability.ucsb.edu/ellison-hall-sustainability//">Ellison Sustainability</a></li>
+  <li><a href="/services/https://outlook.office365.com/owa//">Geog Web Mail</a></li>
+  <li><a href="/services/https://indiana.geog.ucsb.edu:8089/4DACTION/WEB_StartLogin/">GUS Web Login</a></li>
+  <li><a href="/services/purchase-orders/">Purchase Orders</a></li>
+  <li><a href="/services/travel-vouchers/">Travel Vouchers</a></li>
+  <li><a href="/services/web-links/">Web Links</a></li>
+  <li><a href="/services/other-forms/">Other Forms</a></li>
+</ul></li>
+
+<li><a href="/undergraduates/">Undergraduates</a>
+<ul class="null">  <li><a href="/undergraduates/about-us/">About Us</a></li>
+  <li><a href="/undergraduates/resources/campus-resources.php/">Campus Resources</a></li>
+  <li><a href="/undergraduates/beyond-coursework/careers-in-geography.php/">Careers in Geography</a></li>
+  <li><a href="/undergraduates/about-us/faqs.php/">FAQs</a></li>
+  <li><a href="/undergraduates/resources/degree-advising.php/">Advising</a></li>
+  <li><a href="/undergraduates/beyond-coursework/geography-club.php/">The Geography Club</a></li>
+  <li><a href="/undergraduates/projects//">Student Projects</a></li>
+  <li><a href="/undergraduates/resources/grant-opportunities.php/">Awards &amp; Financial Aid</a></li>
+</ul></li>
+
+</ul><div style="clear:both"></div>
+</div>
+
+<div id="footer">
+	<a href="http://www.ucsb.edu/"><img src="/img/ucsb.gif" alt="UC Santa Barbara Home" title="UC Santa Barbara Home"/></a>
+	<div class="nav">
+	  <a href="/about/">about</a> |
+	  <a href="/academics/">academics</a> |
+	  <a href="/people/">people</a> |
+	  <a href="/computing/">computing</a> |
+	  <a href="/services/">services</a> |
+	  <a href="/events/">news &amp; events</a> |
+	  <a href="/giving/">giving to geog</a> |
+	  <a href="/site-map.html">site map</a>
+	</div>
+</div>
+
+
+<div id="copy">
+Copyright &copy; 2015  <a href="http://www.ucsb.edu" title="University of California, Santa Barbara"  target="_blank">University of California, Santa Barbara</a> |  <a href="http://regents.universityofcalifornia.edu/index.html" target="_blank">The Regents of the University of California</a>  |  <a href="http://www.policy.ucsb.edu/terms_of_use/" target="_blank">Terms of Use</a><br/>
+
+ADA accessibility reviewed February 2015. If any of this material is not accessible to you, please contact our department at (805)893-3663 or contact <br/><a class="email"><span>email: </span>geog-web<strong><span>_obf</span> (at) <span>obf.</span></strong><span>domain: </span>ucsb.edu</a> and we will provide alternatives.<br/> 
+
+<!-- 20140207 - Added following code for Social Media availability -->
+<p align="center"><!-- 20140207 - Added following code for Social Media availability --><a href="https://plus.google.com/105408304019154712635" target="_blank" rel="publisher"><img src="/img/social-media-icons-gray/32x32/googleplus-32.png" width="20px" height="20px" alt="Google+"/></a>&nbsp;&nbsp;<a href="https://www.facebook.com/ucsbgeog" target="_blank"><img src="/img/social-media-icons-gray/32x32/facebook-32.png" width="20px" height="20px" alt="Facebook" /></a>&nbsp;&nbsp;<a href="https://www.twitter.com/ucsbgeog" target="_blank"><img src="/img/social-media-icons-gray/32x32/twitter-32.png" width="20px" height="20px" alt="Twitter"/></a>&nbsp;&nbsp;<a href="http://instagram.com/ucsbgeog" target="_blank"><img src="/img/social-media-icons-gray/32x32/instagram-32.png" width="20px" height="20px" alt="Instagram"/></a>&nbsp;&nbsp;<a href="http://www.linkedin.com/groups?gid=6637014" target="_blank"><img src="/img/social-media-icons-gray/32x32/linkedin-32.png" width="20px" height="20px" alt="LinkedIn"/></a>
+ </p>
+
+</div>
+
+</div>
+
+<script type="text/javascript" src="/js/obfuscate_email.js"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4224586-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.geog.ucsb.edu/piwik/" : "http://www.geog.ucsb.edu/piwik/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://www.geog.ucsb.edu/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+
+</body>
+
+</html>
