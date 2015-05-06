@@ -45,7 +45,9 @@
     <Compile Include="QuadTree\IHasRect.cs" />
     <Compile Include="QuadTree\QuadTree.cs" />
     <Compile Include="QuadTree\QuadTreeNode.cs" />
-    <Compile Include="RTree.cs" />
+    <Compile Include="RTree\Extension.cs" />
+    <Compile Include="RTree\RTree.cs" />
+    <Compile Include="RTree\RTreeNode.cs" />
     <Compile Include="SpaceFillingCurve.cs" />
   </ItemGroup>
   <ItemGroup>
