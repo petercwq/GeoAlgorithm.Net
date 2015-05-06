@@ -39,8 +39,8 @@ namespace GeoAlgorithm.Net.RTree
 
             if (nodes.Count < minEntries)
             {
-                foreach (var n in nodes) Insert(n);
-
+                foreach (var n in nodes)
+                    Insert(n);
                 return;
             }
 
@@ -131,7 +131,8 @@ namespace GeoAlgorithm.Net.RTree
         {
             var node = root;
 
-            if (!envelope.Intersects(node.Envelope)) return Enumerable.Empty<RTreeNode<T>>();
+            if (!envelope.Intersects(node.Envelope))
+                return Enumerable.Empty<RTreeNode<T>>();
 
             var retval = new List<RTreeNode<T>>();
             var nodesToSearch = new Stack<RTreeNode<T>>();
