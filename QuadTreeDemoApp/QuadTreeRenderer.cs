@@ -47,7 +47,7 @@ namespace QuadTreeDemoApp
         /// <param name="graphics"></param>
         internal void Render(Graphics graphics)
         {
-            m_quadTree.ForEach(delegate(QuadTreeNode<Item> node)
+            m_quadTree.ForEach(node =>
             {
                 // draw the contents of this quad
                 if (node.Contents != null)
@@ -55,7 +55,7 @@ namespace QuadTreeDemoApp
                     foreach (Item item in node.Contents)
                     {
                         using (Brush b = new SolidBrush(item.Color))
-                            graphics.FillEllipse(b, item.Rectangle.ToRectangle());
+                            graphics.FillEllipse(b, item.BoundingBox.ToRectangle());
                     }
                 }
 
@@ -73,7 +73,6 @@ namespace QuadTreeDemoApp
                 //    graphics.DrawRectangle(p, inside.ToRectangle(Height));
                 //}
             });
-
         }
     }
 }

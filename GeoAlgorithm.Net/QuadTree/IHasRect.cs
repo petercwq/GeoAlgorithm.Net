@@ -11,6 +11,6 @@ namespace GeoAlgorithm.Net.QuadTree
     /// </summary>
     public interface IHasRect
     {
-        Envelope Rectangle { get; }
+        Envelope BoundingBox { get; }
     }
 }

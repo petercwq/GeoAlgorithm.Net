@@ -47,7 +47,7 @@ namespace QuadTreeDemoApp
         /// <summary>
         /// The rectangular bounds of this item
         /// </summary>
-        public Envelope Rectangle { get { return m_rectangle; } }
+        public Envelope BoundingBox { get { return m_rectangle; } }
 
         #endregion
     }

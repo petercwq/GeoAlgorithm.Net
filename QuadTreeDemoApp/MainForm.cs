@@ -56,7 +56,7 @@ namespace QuadTreeDemoApp
             {
                 foreach (Item obj in m_selectedItems)
                 {
-                    var selectedRect = obj.Rectangle.Clone();
+                    var selectedRect = obj.BoundingBox.Clone();
                     selectedRect.ExpandBy(1);
                     using (Pen p = new Pen(Color.Red, 2))
                         e.Graphics.DrawEllipse(p, selectedRect.ToRectangle());
@@ -71,7 +71,8 @@ namespace QuadTreeDemoApp
         private void Init()
         {
             Utility.RectEnvTransHeight = ClientRectangle.Height;
-            m_quadTree = new QuadTree<Item>(this.ClientRectangle.ToEnvelope());
+            // restrict the total level be 6
+            m_quadTree = new QuadTree<Item>(this.ClientRectangle.ToEnvelope(), x => x.Level < 5);
             m_renderer = new QuadTreeRenderer(m_quadTree);
             m_selectedItems = null;
             m_selectionRect = Rectangle.Empty;
