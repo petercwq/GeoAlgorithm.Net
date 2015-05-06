@@ -13,6 +13,10 @@ namespace GeoAlgorithm.Net.GeoHash
     /// http://en.wikipedia.org/wiki/Geohash
     /// http://geohash.org/
     /// </Summary>
+    /// <example>
+    /// In rectangular area (except "faultlines"), points can be requested by single parameter: 
+    /// SELECT * FROM myPoints WHERE geohash >= u85 AND geohash <= u8x
+    /// </example>
     public static class Geohash
     {
         #region Direction enum

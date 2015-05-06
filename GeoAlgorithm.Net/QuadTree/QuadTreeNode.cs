@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using GeoObject.Net;
+using System.Linq;
 
 namespace GeoAlgorithm.Net.QuadTree
 {
@@ -46,12 +47,12 @@ namespace GeoAlgorithm.Net.QuadTree
         /// <summary>
         /// The child nodes of the QuadTree
         /// </summary>
-        List<QuadTreeNode<T>> m_nodes = new List<QuadTreeNode<T>>(4);
+        QuadTreeNode<T>[] m_nodes;// = new QuadTreeNode<T>[4];
 
         /// <summary>
         /// Is the node empty
         /// </summary>
-        public bool IsEmpty { get { return m_bounds.IsNull || (m_nodes.Count == 0 && m_contents.Count == 0); } }
+        public bool IsEmpty { get { return m_bounds.IsNull || (/* m_nodes.Count == 0*/m_nodes == null && m_contents.Count == 0); } }
 
         /// <summary>
         /// Area of the quadtree node
@@ -71,10 +72,11 @@ namespace GeoAlgorithm.Net.QuadTree
             get
             {
                 int count = 0;
-
-                foreach (QuadTreeNode<T> node in m_nodes)
-                    count += node.Count;
-
+                if (m_nodes != null)
+                {
+                    foreach (QuadTreeNode<T> node in m_nodes)
+                        count += node.Count;
+                }
                 count += this.Contents.Count;
 
                 return count;
@@ -84,17 +86,29 @@ namespace GeoAlgorithm.Net.QuadTree
         /// <summary>
         /// Return the contents of this node and all subnodes in the true below this one.
         /// </summary>
-        public List<T> SubTreeContents
+        public IEnumerable<T> SubTreeContents
         {
             get
             {
-                List<T> results = new List<T>();
+                // List<T> results = new List<T>();
+                //if (m_nodes != null)
+                //{
+                //    foreach (QuadTreeNode<T> node in m_nodes)
+                //        results.AddRange(node.SubTreeContents);
+                //}
+                //results.AddRange(this.Contents);
+                //return results;
 
-                foreach (QuadTreeNode<T> node in m_nodes)
-                    results.AddRange(node.SubTreeContents);
-
-                results.AddRange(this.Contents);
-                return results;
+                foreach (var item in this.Contents)
+                    yield return item;
+                if (m_nodes != null)
+                {
+                    foreach (var node in m_nodes)
+                    {
+                        foreach (var item in node.SubTreeContents)
+                            yield return item;
+                    }
+                }
             }
         }
 
@@ -120,6 +134,10 @@ namespace GeoAlgorithm.Net.QuadTree
                 if (queryArea.Intersects(item.BoundingBox))
                     results.Add(item);
             }
+
+            // if no node exists, return
+            if (m_nodes == null)
+                return;
 
             foreach (QuadTreeNode<T> node in m_nodes)
             {
@@ -172,20 +190,23 @@ namespace GeoAlgorithm.Net.QuadTree
                 throw new System.InvalidOperationException("feature is out of the bounds of this quadtree node");
             }
 
-            // if the subnodes are null create them. may not be sucessfull: see below
+            // if the subnodes are null create them. may not be successful: see below
             // we may be at the smallest allowed size in which case the subnodes will not be created
-            if (m_nodes.Count == 0)
+            if (m_nodes == null)
                 CreateSubNodes();
 
-            // for each subnode:
-            // if the node contains the item, add the item to that node and return
-            // this recurses into the node that is just large enough to fit this item
-            foreach (QuadTreeNode<T> node in m_nodes)
+            if (m_nodes != null)
             {
-                if (node.Bounds.Contains(item.BoundingBox))
+                // for each subnode:
+                // if the node contains the item, add the item to that node and return
+                // this recurses into the node that is just large enough to fit this item
+                foreach (QuadTreeNode<T> node in m_nodes)
                 {
-                    node.Insert(item);
-                    return;
+                    if (node.Bounds.Contains(item.BoundingBox))
+                    {
+                        node.Insert(item);
+                        return;
+                    }
                 }
             }
 
@@ -199,9 +220,12 @@ namespace GeoAlgorithm.Net.QuadTree
         {
             action(this);
 
-            // draw the child quads
-            foreach (QuadTreeNode<T> node in this.m_nodes)
-                node.ForEach(action);
+            if (m_nodes != null)
+            {
+                // draw the child quads
+                foreach (QuadTreeNode<T> node in this.m_nodes)
+                    node.ForEach(action);
+            }
         }
 
         /// <summary>
@@ -223,10 +247,12 @@ namespace GeoAlgorithm.Net.QuadTree
             var centerx = minx + (m_bounds.Width / 2d);
             var centery = miny + (m_bounds.Height / 2d);
 
-            m_nodes.Add(new QuadTreeNode<T>(new Envelope(minx, centerx, miny, centery), m_level + 1, m_ifCreateSubnode));
-            m_nodes.Add(new QuadTreeNode<T>(new Envelope(centerx, maxx, miny, centery), m_level + 1, m_ifCreateSubnode));
-            m_nodes.Add(new QuadTreeNode<T>(new Envelope(minx, centerx, centery, maxy), m_level + 1, m_ifCreateSubnode));
-            m_nodes.Add(new QuadTreeNode<T>(new Envelope(centerx, maxx, centery, maxy), m_level + 1, m_ifCreateSubnode));
+            m_nodes = new QuadTreeNode<T>[4]{
+                new QuadTreeNode<T>(new Envelope(minx, centerx, miny, centery), m_level + 1, m_ifCreateSubnode),
+                new QuadTreeNode<T>(new Envelope(centerx, maxx, miny, centery), m_level + 1, m_ifCreateSubnode),
+                new QuadTreeNode<T>(new Envelope(minx, centerx, centery, maxy), m_level + 1, m_ifCreateSubnode),
+                new QuadTreeNode<T>(new Envelope(centerx, maxx, centery, maxy), m_level + 1, m_ifCreateSubnode)
+            };
         }
     }
 }
