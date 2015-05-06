@@ -38,6 +38,7 @@
     <None Include="References.md" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cluster\GeoCluster.cs" />
     <Compile Include="GeoHash\GeoHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuadTile\QuadTile.cs" />

@@ -5,3 +5,4 @@
 - [QuadTiles](http://wiki.openstreetmap.org/wiki/QuadTiles)
 - [Spatial Keys – Memory Efficient Geohashes](https://karussell.wordpress.com/2012/05/23/spatial-keys-memory-efficient-geohashes/)
 - [geohash algorithm principle and implementation](http://www.cnblogs.com/dengxinglin/archive/2012/12/14/2817761.html)
+- [How To Efficiently Display Large Amounts of Data on iOS Maps](https://robots.thoughtbot.com/how-to-handle-large-amounts-of-data-on-maps)
