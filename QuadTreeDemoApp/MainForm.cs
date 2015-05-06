@@ -84,7 +84,7 @@ namespace QuadTreeDemoApp
         bool m_dragging = false;
         Rectangle m_selectionRect;
         Point m_startPoint;
-        List<Item> m_selectedItems;
+        IEnumerable<Item> m_selectedItems;
 
         /// <summary>
         /// MouseUp: 

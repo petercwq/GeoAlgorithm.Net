@@ -5,7 +5,6 @@
 using System;
 using System.Collections.Generic;
 using GeoObject.Net;
-using System.Linq;
 
 namespace GeoAlgorithm.Net.QuadTree
 {
@@ -121,7 +120,7 @@ namespace GeoAlgorithm.Net.QuadTree
         /// <remarks>
         /// Not use "ref" on results parameter, the Query method should not change the the value of the reference itself during execution.
         /// </remarks>
-        public void Query(Envelope queryArea, List<T> results)
+        public IEnumerable<T> Query(Envelope queryArea/*, List<T> results*/)
         {
             // create a list of the items that are found
             // List<T> results = new List<T>();
@@ -132,12 +131,13 @@ namespace GeoAlgorithm.Net.QuadTree
             foreach (T item in this.Contents)
             {
                 if (queryArea.Intersects(item.BoundingBox))
-                    results.Add(item);
+                    // results.Add(item);
+                    yield return item;
             }
 
             // if no node exists, return
             if (m_nodes == null)
-                return;
+                yield break;
 
             foreach (QuadTreeNode<T> node in m_nodes)
             {
@@ -150,7 +150,8 @@ namespace GeoAlgorithm.Net.QuadTree
                 if (node.Bounds.Contains(queryArea))
                 {
                     // results.AddRange(node.Query(queryArea));
-                    node.Query(queryArea, results);
+                    foreach (var item in node.Query(queryArea))
+                        yield return item;
                     break;
                 }
 
@@ -161,7 +162,8 @@ namespace GeoAlgorithm.Net.QuadTree
                 // the other quads
                 if (queryArea.Contains(node.Bounds))
                 {
-                    results.AddRange(node.SubTreeContents);
+                    foreach (var item in node.SubTreeContents)
+                        yield return item;
                     continue;
                 }
 
@@ -171,7 +173,8 @@ namespace GeoAlgorithm.Net.QuadTree
                 if (node.Bounds.Intersects(queryArea))
                 {
                     // results.AddRange(node.Query(queryArea));
-                    node.Query(queryArea, results);
+                    foreach (var item in node.Query(queryArea))
+                        yield return item;
                 }
             }
 
@@ -182,12 +185,13 @@ namespace GeoAlgorithm.Net.QuadTree
         /// Insert an item to this node
         /// </summary>
         /// <param name="item"></param>
-        public void Insert(T item)
+        public bool Insert(T item)
         {
             // if the item is not contained in this quad, there's a problem
             if (!m_bounds.Contains(item.BoundingBox))
             {
-                throw new System.InvalidOperationException("feature is out of the bounds of this quadtree node");
+                return false;
+                //throw new System.InvalidOperationException("feature is out of the bounds of this quadtree node");
             }
 
             // if the subnodes are null create them. may not be successful: see below
@@ -205,7 +209,7 @@ namespace GeoAlgorithm.Net.QuadTree
                     if (node.Bounds.Contains(item.BoundingBox))
                     {
                         node.Insert(item);
-                        return;
+                        return true;
                     }
                 }
             }
@@ -214,6 +218,7 @@ namespace GeoAlgorithm.Net.QuadTree
             // 1) none of the subnodes completely contained the item. or
             // 2) we're at the smallest subnode size allowed add the item to this node's contents.
             this.Contents.Add(item);
+            return true;
         }
 
         public void ForEach(Action<QuadTreeNode<T>> action)

@@ -54,9 +54,9 @@ namespace GeoAlgorithm.Net.QuadTree
         /// Insert the feature into the QuadTree
         /// </summary>
         /// <param name="item"></param>
-        public void Insert(T item)
+        public bool Insert(T item)
         {
-            m_root.Insert(item);
+            return m_root.Insert(item);
         }
 
         /// <summary>
@@ -64,11 +64,9 @@ namespace GeoAlgorithm.Net.QuadTree
         /// </summary>
         /// <param name="area"></param>
         /// <returns></returns>
-        public List<T> Query(Envelope area)
+        public IEnumerable<T> Query(Envelope area)
         {
-            List<T> results = new List<T>();
-            m_root.Query(area, results);
-            return results;
+            return m_root.Query(area);
         }
 
         /// <summary>
