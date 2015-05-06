@@ -66,7 +66,9 @@ namespace GeoAlgorithm.Net.QuadTree
         /// <returns></returns>
         public List<T> Query(Envelope area)
         {
-            return m_root.Query(area);
+            List<T> results = new List<T>();
+            m_root.Query(area, results);
+            return results;
         }
 
         /// <summary>

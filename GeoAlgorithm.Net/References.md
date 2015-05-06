@@ -4,3 +4,4 @@
 - [Finding Points Within a Distance of a Latitude/Longitude Using Bounding Coordinates](http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates)
 - [QuadTiles](http://wiki.openstreetmap.org/wiki/QuadTiles)
 - [Spatial Keys – Memory Efficient Geohashes](https://karussell.wordpress.com/2012/05/23/spatial-keys-memory-efficient-geohashes/)
+- [geohash algorithm principle and implementation](http://www.cnblogs.com/dengxinglin/archive/2012/12/14/2817761.html)

@@ -104,11 +104,13 @@ namespace GeoAlgorithm.Net.QuadTree
         /// Query the QuadTree for items that are in the given area
         /// </summary>
         /// <param name="queryArea"></pasram>
-        /// <returns></returns>
-        public List<T> Query(Envelope queryArea)
+        /// <remarks>
+        /// Not use "ref" on results parameter, the Query method should not change the the value of the reference itself during execution.
+        /// </remarks>
+        public void Query(Envelope queryArea, List<T> results)
         {
             // create a list of the items that are found
-            List<T> results = new List<T>();
+            // List<T> results = new List<T>();
 
             // this quad contains items that are not entirely contained by
             // it's four sub-quads. Iterate through the items in this quad 
@@ -129,7 +131,8 @@ namespace GeoAlgorithm.Net.QuadTree
                 // and skip the remaining nodes (break this loop)
                 if (node.Bounds.Contains(queryArea))
                 {
-                    results.AddRange(node.Query(queryArea));
+                    // results.AddRange(node.Query(queryArea));
+                    node.Query(queryArea, results);
                     break;
                 }
 
@@ -149,12 +152,12 @@ namespace GeoAlgorithm.Net.QuadTree
                 // quads
                 if (node.Bounds.Intersects(queryArea))
                 {
-                    results.AddRange(node.Query(queryArea));
+                    // results.AddRange(node.Query(queryArea));
+                    node.Query(queryArea, results);
                 }
             }
 
-
-            return results;
+            // return results;
         }
 
         /// <summary>
