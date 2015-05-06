@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("QuadTreeDemoApp")]
+[assembly: AssemblyTitle("GeoHashDemoApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("QuadTreeDemoApp")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyProduct("GeoHashDemoApp")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1de3e782-d317-41aa-8acf-21d826fee936")]
+[assembly: Guid("4ba4615d-4554-48be-a923-a4665b00151c")]
 
 // Version information for an assembly consists of the following four values:
 //
