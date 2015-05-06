@@ -1,0 +1,5 @@
+﻿[Damn Cool Algorithms: Spatial indexing with Quadtrees and Hilbert Curves](http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves)
+[2d Index Internals of MongoDB](http://docs.mongodb.org/manual/core/geospatial-indexes/)
+[Indexing geo-data](http://evertpot.com/229/)
+[Finding Points Within a Distance of a Latitude/Longitude Using Bounding Coordinates](http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates)
+[QuadTiles](http://wiki.openstreetmap.org/wiki/QuadTiles)
