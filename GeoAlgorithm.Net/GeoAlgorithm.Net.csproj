@@ -38,9 +38,9 @@
     <None Include="References.md" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeoHash.cs" />
+    <Compile Include="GeoHash\GeoHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuadTiles.cs" />
+    <Compile Include="QuadTile\QuadTile.cs" />
     <Compile Include="QuadTree\IHasRect.cs" />
     <Compile Include="QuadTree\QuadTree.cs" />
     <Compile Include="QuadTree\QuadTreeNode.cs" />

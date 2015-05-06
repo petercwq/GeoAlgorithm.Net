@@ -4,7 +4,7 @@
 
 using System;
 
-namespace GeoAlgorithm.Net
+namespace GeoAlgorithm.Net.GeoHash
 {
     /// <Surmmary>
     /// Geohash is a latitude/longitude geocode system invented by Gustavo Niemeyer when writing

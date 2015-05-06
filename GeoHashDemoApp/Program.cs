@@ -1,5 +1,5 @@
 ﻿using System;
-using GeoAlgorithm.Net;
+using GeoAlgorithm.Net.GeoHash;
 
 namespace GeoHashDemoApp
 {
