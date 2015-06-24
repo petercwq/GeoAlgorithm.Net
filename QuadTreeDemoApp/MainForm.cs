@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using GeoAlgorithm.Net.QuadTree;
+using GeoObject.Net;
 
 namespace QuadTreeDemoApp
 {
     public partial class MainForm : Form
     {
-        QuadTree<Item> m_quadTree;
+        QuadTree<Item, Envelope> m_quadTree;
 
         QuadTreeRenderer m_renderer;
 
@@ -56,7 +57,7 @@ namespace QuadTreeDemoApp
             {
                 foreach (Item obj in m_selectedItems)
                 {
-                    var selectedRect = obj.BoundingBox.Clone();
+                    var selectedRect = obj.Extent.Clone();
                     selectedRect.ExpandBy(1);
                     using (Pen p = new Pen(Color.Red, 2))
                         e.Graphics.DrawEllipse(p, selectedRect.ToRectangle());
@@ -72,7 +73,7 @@ namespace QuadTreeDemoApp
         {
             Utility.RectEnvTransHeight = ClientRectangle.Height;
             // restrict the total level be 6
-            m_quadTree = new QuadTree<Item>(this.ClientRectangle.ToEnvelope(), x => x.Level < 5);
+            m_quadTree = new QuadTree<Item, Envelope>(this.ClientRectangle.ToEnvelope(), x => x.Level < 5);
             m_renderer = new QuadTreeRenderer(m_quadTree);
             m_selectedItems = null;
             m_selectionRect = Rectangle.Empty;

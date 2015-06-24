@@ -17,17 +17,18 @@ namespace GeoAlgorithm.Net.QuadTree
     ///  along both axes - hence the name.
     /// http://en.wikipedia.org/wiki/Quadtree
     /// </Summary>
-    public class QuadTree<T> where T : IHasRect
+    public class QuadTree<TItem, TBox> where TItem : IQuadTreeItem<TBox>
+        where TBox : IIntersectable<TBox>, IContainable<TBox>, IHasQuadNodes<TBox>, IsEmpty
     {
         /// <summary>
         /// The root QuadTreeNode
         /// </summary>
-        QuadTreeNode<T> m_root;
+        QuadTreeNode<TItem, TBox> m_root;
 
         /// <summary>
         /// The bounds of this QuadTree
         /// </summary>
-        Envelope m_rectangle;
+        TBox m_rectangle;
 
         ///// <summary>
         ///// An delegate that performs an action on a QuadTreeNode
@@ -39,10 +40,10 @@ namespace GeoAlgorithm.Net.QuadTree
         /// 
         /// </summary>
         /// <param name="rectangle"></param>
-        public QuadTree(Envelope rectangle, Func<QuadTreeNode<T>, bool> ifCreateSubnode = null)
+        public QuadTree(TBox rectangle, Func<QuadTreeNode<TItem, TBox>, bool> ifCreateSubnode = null)
         {
             m_rectangle = rectangle;
-            m_root = new QuadTreeNode<T>(m_rectangle, 0, ifCreateSubnode);
+            m_root = new QuadTreeNode<TItem, TBox>(m_rectangle, 0, ifCreateSubnode);
         }
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace GeoAlgorithm.Net.QuadTree
         /// Insert the feature into the QuadTree
         /// </summary>
         /// <param name="item"></param>
-        public bool Insert(T item)
+        public bool Insert(TItem item)
         {
             return m_root.Insert(item);
         }
@@ -64,7 +65,7 @@ namespace GeoAlgorithm.Net.QuadTree
         /// </summary>
         /// <param name="area"></param>
         /// <returns></returns>
-        public IEnumerable<T> Query(Envelope area)
+        public IEnumerable<TItem> Query(TBox area)
         {
             return m_root.Query(area);
         }
@@ -73,7 +74,7 @@ namespace GeoAlgorithm.Net.QuadTree
         /// Do the specified action for each item in the quadtree
         /// </summary>
         /// <param name="action"></param>
-        public void ForEach(Action<QuadTreeNode<T>> action)
+        public void ForEach(Action<QuadTreeNode<TItem, TBox>> action)
         {
             m_root.ForEach(action);
         }

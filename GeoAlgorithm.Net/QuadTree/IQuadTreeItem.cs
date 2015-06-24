@@ -6,11 +6,11 @@ using GeoObject.Net;
 
 namespace GeoAlgorithm.Net.QuadTree
 {
-    /// <summary>
+     /// <summary>
     /// An interface that defines and object with a rectangle
     /// </summary>
-    public interface IHasRect
+    public interface IQuadTreeItem<T> where T : IIntersectable<T>, IContainable<T>, IHasQuadNodes<T>, IsEmpty
     {
-        Envelope BoundingBox { get; }
+        T Extent { get; }
     }
 }

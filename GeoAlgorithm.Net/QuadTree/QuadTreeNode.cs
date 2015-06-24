@@ -11,14 +11,16 @@ namespace GeoAlgorithm.Net.QuadTree
     /// <summary>
     /// The QuadTreeNode
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class QuadTreeNode<T> where T : IHasRect
+    /// <typeparam name="TItem"></typeparam>
+    public class QuadTreeNode<TItem, TBox>
+        where TItem : IQuadTreeItem<TBox>
+        where TBox : IIntersectable<TBox>, IContainable<TBox>, IHasQuadNodes<TBox>, IsEmpty
     {
         /// <summary>
         /// Construct a quadtree node with the given bounds 
         /// </summary>
         /// <param name="area"></param>
-        public QuadTreeNode(Envelope bounds, int level = 0, Func<QuadTreeNode<T>, bool> ifCreateSubnode = null)
+        public QuadTreeNode(TBox bounds, int level = 0, Func<QuadTreeNode<TItem, TBox>, bool> ifCreateSubnode = null)
         {
             m_bounds = bounds;
             m_level = level;
@@ -28,35 +30,35 @@ namespace GeoAlgorithm.Net.QuadTree
         /// <summary>
         /// The area of this node
         /// </summary>
-        Envelope m_bounds;
+        TBox m_bounds;
 
         /// <summary>
         /// The level of this node
         /// </summary>
         int m_level;
 
-        Func<QuadTreeNode<T>, bool> m_ifCreateSubnode;
+        Func<QuadTreeNode<TItem, TBox>, bool> m_ifCreateSubnode;
 
         /// <summary>
         /// The contents of this node.
         /// Note that the contents have no limit: this is not the standard way to implement a QuadTree
         /// </summary>
-        List<T> m_contents = new List<T>();
+        List<TItem> m_contents = new List<TItem>();
 
         /// <summary>
         /// The child nodes of the QuadTree
         /// </summary>
-        QuadTreeNode<T>[] m_nodes;// = new QuadTreeNode<T>[4];
+        QuadTreeNode<TItem, TBox>[] m_nodes;// = new QuadTreeNode<T>[4];
 
         /// <summary>
         /// Is the node empty
         /// </summary>
-        public bool IsEmpty { get { return m_bounds.IsNull || (/* m_nodes.Count == 0*/m_nodes == null && m_contents.Count == 0); } }
+        public bool IsEmpty { get { return m_bounds.IsEmpty || (/* m_nodes.Count == 0*/m_nodes == null && m_contents.Count == 0); } }
 
         /// <summary>
         /// Area of the quadtree node
         /// </summary>
-        public Envelope Bounds { get { return m_bounds; } }
+        public TBox Bounds { get { return m_bounds; } }
 
         /// <summary>
         /// The level of the quadtree node
@@ -73,7 +75,7 @@ namespace GeoAlgorithm.Net.QuadTree
                 int count = 0;
                 if (m_nodes != null)
                 {
-                    foreach (QuadTreeNode<T> node in m_nodes)
+                    foreach (var node in m_nodes)
                         count += node.Count;
                 }
                 count += this.Contents.Count;
@@ -85,7 +87,7 @@ namespace GeoAlgorithm.Net.QuadTree
         /// <summary>
         /// Return the contents of this node and all subnodes in the true below this one.
         /// </summary>
-        public IEnumerable<T> SubTreeContents
+        public IEnumerable<TItem> SubTreeContents
         {
             get
             {
@@ -111,7 +113,7 @@ namespace GeoAlgorithm.Net.QuadTree
             }
         }
 
-        public List<T> Contents { get { return m_contents; } }
+        public List<TItem> Contents { get { return m_contents; } }
 
         /// <summary>
         /// Query the QuadTree for items that are in the given area
@@ -120,7 +122,7 @@ namespace GeoAlgorithm.Net.QuadTree
         /// <remarks>
         /// Not use "ref" on results parameter, the Query method should not change the the value of the reference itself during execution.
         /// </remarks>
-        public IEnumerable<T> Query(Envelope queryArea/*, List<T> results*/)
+        public IEnumerable<TItem> Query(TBox queryArea/*, List<T> results*/)
         {
             // create a list of the items that are found
             // List<T> results = new List<T>();
@@ -128,9 +130,9 @@ namespace GeoAlgorithm.Net.QuadTree
             // this quad contains items that are not entirely contained by
             // it's four sub-quads. Iterate through the items in this quad 
             // to see if they intersect.
-            foreach (T item in this.Contents)
+            foreach (TItem item in this.Contents)
             {
-                if (queryArea.Intersects(item.BoundingBox))
+                if (queryArea.Intersects(item.Extent))
                     // results.Add(item);
                     yield return item;
             }
@@ -139,7 +141,7 @@ namespace GeoAlgorithm.Net.QuadTree
             if (m_nodes == null)
                 yield break;
 
-            foreach (QuadTreeNode<T> node in m_nodes)
+            foreach (var node in m_nodes)
             {
                 if (node.IsEmpty)
                     continue;
@@ -185,10 +187,10 @@ namespace GeoAlgorithm.Net.QuadTree
         /// Insert an item to this node
         /// </summary>
         /// <param name="item"></param>
-        public bool Insert(T item)
+        public bool Insert(TItem item)
         {
             // if the item is not contained in this quad, there's a problem
-            if (!m_bounds.Contains(item.BoundingBox))
+            if (!m_bounds.Contains(item.Extent))
             {
                 return false;
                 //throw new System.InvalidOperationException("feature is out of the bounds of this quadtree node");
@@ -204,9 +206,9 @@ namespace GeoAlgorithm.Net.QuadTree
                 // for each subnode:
                 // if the node contains the item, add the item to that node and return
                 // this recurses into the node that is just large enough to fit this item
-                foreach (QuadTreeNode<T> node in m_nodes)
+                foreach (var node in m_nodes)
                 {
-                    if (node.Bounds.Contains(item.BoundingBox))
+                    if (node.Bounds.Contains(item.Extent))
                     {
                         node.Insert(item);
                         return true;
@@ -221,14 +223,14 @@ namespace GeoAlgorithm.Net.QuadTree
             return true;
         }
 
-        public void ForEach(Action<QuadTreeNode<T>> action)
+        public void ForEach(Action<QuadTreeNode<TItem, TBox>> action)
         {
             action(this);
 
             if (m_nodes != null)
             {
                 // draw the child quads
-                foreach (QuadTreeNode<T> node in this.m_nodes)
+                foreach (var node in this.m_nodes)
                     node.ForEach(action);
             }
         }
@@ -245,19 +247,26 @@ namespace GeoAlgorithm.Net.QuadTree
             if (m_ifCreateSubnode != null && !m_ifCreateSubnode(this))
                 return;
 
-            var minx = m_bounds.MinX;
-            var miny = m_bounds.MinY;
-            var maxx = m_bounds.MaxX;
-            var maxy = m_bounds.MaxY;
-            var centerx = minx + (m_bounds.Width / 2d);
-            var centery = miny + (m_bounds.Height / 2d);
+            var boxes = m_bounds.QuadNodes;
+            m_nodes = new QuadTreeNode<TItem, TBox>[boxes.Length];
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                m_nodes[i] = new QuadTreeNode<TItem, TBox>(boxes[i], m_level + 1, m_ifCreateSubnode);
+            }
 
-            m_nodes = new QuadTreeNode<T>[4]{
-                new QuadTreeNode<T>(new Envelope(minx, centerx, miny, centery), m_level + 1, m_ifCreateSubnode),
-                new QuadTreeNode<T>(new Envelope(centerx, maxx, miny, centery), m_level + 1, m_ifCreateSubnode),
-                new QuadTreeNode<T>(new Envelope(minx, centerx, centery, maxy), m_level + 1, m_ifCreateSubnode),
-                new QuadTreeNode<T>(new Envelope(centerx, maxx, centery, maxy), m_level + 1, m_ifCreateSubnode)
-            };
+            //var minx = m_bounds.MinX;
+            //var miny = m_bounds.MinY;
+            //var maxx = m_bounds.MaxX;
+            //var maxy = m_bounds.MaxY;
+            //var centerx = minx + (m_bounds.Width / 2d);
+            //var centery = miny + (m_bounds.Height / 2d);
+
+            //m_nodes = new QuadTreeNode<TItem, TBox>[4]{
+            //    new QuadTreeNode<TItem, TBox>(new Envelope(minx, centerx, miny, centery), m_level + 1, m_ifCreateSubnode),
+            //    new QuadTreeNode<TItem, TBox>(new Envelope(centerx, maxx, miny, centery), m_level + 1, m_ifCreateSubnode),
+            //    new QuadTreeNode<TItem, TBox>(new Envelope(minx, centerx, centery, maxy), m_level + 1, m_ifCreateSubnode),
+            //    new QuadTreeNode<TItem, TBox>(new Envelope(centerx, maxx, centery, maxy), m_level + 1, m_ifCreateSubnode)
+            //};
         }
     }
 }

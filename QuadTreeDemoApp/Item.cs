@@ -8,7 +8,7 @@ namespace QuadTreeDemoApp
     /// An item with a position, a size and a random colour to test
     /// the QuadTree structure.
     /// </summary>
-    class Item : IHasRect
+    class Item : IQuadTreeItem<Envelope>
     {
         /// <summary>
         /// Create an item at the given location with the given size.
@@ -47,7 +47,7 @@ namespace QuadTreeDemoApp
         /// <summary>
         /// The rectangular bounds of this item
         /// </summary>
-        public Envelope BoundingBox { get { return m_rectangle; } }
+        public Envelope Extent { get { return m_rectangle; } }
 
         #endregion
     }
