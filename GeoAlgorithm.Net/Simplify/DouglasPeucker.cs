@@ -2,6 +2,7 @@
 //using System.Collections.Generic;
 //using System.Diagnostics;
 //using System.Linq;
+//using System.Runtime.InteropServices;
 //using System.Text;
 //using System.Threading.Tasks;
 
@@ -145,7 +146,7 @@
 //        }
 
 
-//        //http://blog.wouldbetheologian.com/2011/11/fast-approximate-sqrt-method-in-c.html
+//        // http://blog.wouldbetheologian.com/2011/11/fast-approximate-sqrt-method-in-c.html
 //        internal static float Sqrt(float z)
 //        {
 //            if (z == 0) return 0;
@@ -156,6 +157,16 @@
 //            u.tmp >>= 1; /* Divide by 2. */
 //            u.tmp += 1 << 29; /* Add ((b + 1) / 2) * 2^m. */
 //            return u.f;
+//        }
+
+//        [StructLayout(LayoutKind.Explicit)]
+//        private struct FloatIntUnion
+//        {
+//            [FieldOffset(0)]
+//            public float f;
+
+//            [FieldOffset(0)]
+//            public int tmp;
 //        }
 //    }
 //}
