@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GeoAlgorithm.Net
+namespace GeoAlgorithm.Net.Curves
 {
     class SpaceFillingCurve
     {

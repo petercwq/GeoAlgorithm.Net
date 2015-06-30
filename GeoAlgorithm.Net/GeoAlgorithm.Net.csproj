@@ -58,7 +58,7 @@
     <Compile Include="Simplify\DouglasPeucker.cs" />
     <Compile Include="Simplify\DouglasPeucker_V1.cs" />
     <Compile Include="Simplify\RamerDouglasPeucker.cs" />
-    <Compile Include="SpaceFillingCurve.cs" />
+    <Compile Include="Curves\SpaceFillingCurve.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\GeoObject.Net\src\GeoObject.Net\GeoObject.Net.csproj">
