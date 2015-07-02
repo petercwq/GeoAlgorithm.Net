@@ -12,22 +12,22 @@ namespace GeoHashDemoApp
             const int precision = 13;
 
             // Calculate hash with full precision
-            string hash = Geohash.Encode(testLat, testLong, precision);
+            string hash = Geohash1.Encode(testLat, testLong, precision);
 
             // Print out the hash for a range of precision
             for (int i = 1; i <= precision; i++)
             {
-                var code = Geohash.Encode(testLat, testLong, i);
-                var ll = Geohash.Decode(code);
+                var code = Geohash1.Encode(testLat, testLong, i);
+                var ll = Geohash1.Decode(code);
 
                 Console.WriteLine("precision {2}: {0}, {1} \t->\t {3} \t->\t {4}, {5}", testLat, testLong, i, code, ll[0], ll[1]);
             }
 
             // Print neighbours
-            Console.WriteLine("{0} \t: {1}", "T", Geohash.CalculateAdjacent(hash, Geohash.Direction.Top));
-            Console.WriteLine("{0} \t: {1}", "L", Geohash.CalculateAdjacent(hash, Geohash.Direction.Left));
-            Console.WriteLine("{0} \t: {1}", "R", Geohash.CalculateAdjacent(hash, Geohash.Direction.Right));
-            Console.WriteLine("{0} \t: {1}", "B", Geohash.CalculateAdjacent(hash, Geohash.Direction.Bottom));
+            Console.WriteLine("{0} \t: {1}", "T", Geohash1.CalculateAdjacent(hash, Geohash1.Direction.Top));
+            Console.WriteLine("{0} \t: {1}", "L", Geohash1.CalculateAdjacent(hash, Geohash1.Direction.Left));
+            Console.WriteLine("{0} \t: {1}", "R", Geohash1.CalculateAdjacent(hash, Geohash1.Direction.Right));
+            Console.WriteLine("{0} \t: {1}", "B", Geohash1.CalculateAdjacent(hash, Geohash1.Direction.Bottom));
         }
     }
 }

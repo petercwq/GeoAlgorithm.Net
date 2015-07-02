@@ -46,7 +46,12 @@
     <Compile Include="Cache\LRUCacheHelper.cs" />
     <Compile Include="Cluster\GeoCluster.cs" />
     <Compile Include="Curves\CubicBezier.cs" />
-    <Compile Include="GeoHash\GeoHash.cs" />
+    <Compile Include="GeoHash\Base32.cs" />
+    <Compile Include="GeoHash\Coverage.cs" />
+    <Compile Include="GeoHash\CoverageLongs.cs" />
+    <Compile Include="GeoHash\GeoHash1.cs" />
+    <Compile Include="GeoHash\GeoHash2.cs" />
+    <Compile Include="GeoHash\LatLong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuadTile\QuadTile.cs" />
     <Compile Include="QuadTree\IQuadTreeItem.cs" />
