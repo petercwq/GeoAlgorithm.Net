@@ -45,6 +45,7 @@
     <Compile Include="Cache\LRUCache.cs" />
     <Compile Include="Cache\LRUCacheHelper.cs" />
     <Compile Include="Cluster\GeoCluster.cs" />
+    <Compile Include="ConvexHull\ConvexHull.cs" />
     <Compile Include="Curves\CubicBezier.cs" />
     <Compile Include="GeoHash\Base32.cs" />
     <Compile Include="GeoHash\Coverage.cs" />

@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoHashDemoApp", "GeoHashDe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{4A8A77F8-AB4E-4E65-91D9-24D7DC4BC0DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvexHullDemoApp", "ConvexHullDemoApp\ConvexHullDemoApp.csproj", "{9770F423-BA65-4F4F-8E02-82D521514289}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{BE4757C1-2767-430E-B506-28EDE9BCCF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE4757C1-2767-430E-B506-28EDE9BCCF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE4757C1-2767-430E-B506-28EDE9BCCF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9770F423-BA65-4F4F-8E02-82D521514289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9770F423-BA65-4F4F-8E02-82D521514289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9770F423-BA65-4F4F-8E02-82D521514289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9770F423-BA65-4F4F-8E02-82D521514289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CEF643AF-85D3-4422-9E6E-D78B983A3098} = {4A8A77F8-AB4E-4E65-91D9-24D7DC4BC0DB}
 		{BE4757C1-2767-430E-B506-28EDE9BCCF00} = {4A8A77F8-AB4E-4E65-91D9-24D7DC4BC0DB}
+		{9770F423-BA65-4F4F-8E02-82D521514289} = {4A8A77F8-AB4E-4E65-91D9-24D7DC4BC0DB}
 	EndGlobalSection
 EndGlobal
